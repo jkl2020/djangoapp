@@ -1,0 +1,95 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+<table style="width: 80%;">
+<tbody>
+<tr style="background-color: darkgray;">
+<th colspan="2" style="text-align: center; width: 50%;">
+<h3 style="text-align: center;"><strong>Date</strong></h3>
+</th>
+<th style="text-align: center; width: 12.5%;">
+<h3><strong>&nbsp;</strong></h3>
+</th>
+<th style="text-align: center; width: 12.5%;">
+<h3><strong>Elevation</strong></h3>
+</th>
+<th style="text-align: center; width: 25%;">
+<h3><strong>Inflow</strong></h3>
+</th>
+<th style="text-align: center; width: 25%;">
+<h3><strong>Outflow</strong></h3>
+</th>
+</tr>
+<tr style="background-color: whitesmoke;">
+<td style="width: 25%; text-align: right;">
+<h4>Today</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ today }}</h4>
+</td>
+<td style="text-align: center; width: 12.5%;">
+<h4></h4>
+</td>
+<td style="text-align: center; width: 12.5%;">
+<h4>{{ todaylevel }}</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ todayinflow }}</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ todayoutflow }}</h4>
+</td>
+</tr>
+<tr style="background-color: floralwhite;">
+<td style="width: 25%; text-align: right;">
+<h4>Tomorrow</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ tomorrow }}</h4>
+</td>
+<td style="text-align: center; width: 12.5%;">
+<h4>{{ updown1 }}</h4>
+<h4>{{ delta1 }} inches</h4>
+</td>
+<td style="text-align: center; width: 12.5%;">
+<h4>{{ tomorrowlevel }}</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ tomorrowinflow }}</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ tomorrowoutflow }}</h4>
+</td>
+</tr>
+<tr style="background-color: whitesmoke;">
+<td style="width: 25%; text-align: right;">
+<h4>Two days out</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ twoday }}</h4>
+</td>
+<td style="text-align: center; width: 12.5%;">
+<h4>{{ updown2 }}</h4>
+<h4>{{ delta2 }} inches</h4>
+</td>
+<td style="text-align: center; width: 12.5%;">
+<h4>{{ twodaylevel }}</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ twodayinflow }}</h4>
+</td>
+<td style="text-align: center; width: 25%;">
+<h4>{{ twodayoutflow }}</h4>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+<p><strong>*NEW* Alert me when future elevation is predicted to be OVER/UNDER <input style="width: 60px;" value="{{ twodaylevel }}" type="text" /> FEET.</strong></p>
+
+{% endblock %}
