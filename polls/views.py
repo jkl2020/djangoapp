@@ -54,3 +54,31 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+def levels(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'polls/levels.html',
+        {
+            'title':'Norris Lake Water Level',
+            'message':'Three Day Prediction:',
+            'year':datetime.now().year,
+            'today':df.iloc[0].values[0],
+            'todaylevel':df.iloc[0].values[2],
+            'todayinflow':df.iloc[0].values[1],
+            'todayoutflow':df.iloc[0].values[3],
+            'tomorrow':df.iloc[1].values[0],
+            'tomorrowlevel':df.iloc[1].values[2],
+            'tomorrowinflow':df.iloc[1].values[1],
+            'tomorrowoutflow':df.iloc[1].values[3],
+            'twoday':df.iloc[2].values[0],
+            'twodaylevel':df.iloc[2].values[2],
+            'twodayinflow':df.iloc[2].values[1],
+            'twodayoutflow':df.iloc[2].values[3],
+            'updown1':updown1,
+            'updown2':updown2,
+            'delta1':delta1,
+            'delta2':delta2
+        }
+    )
